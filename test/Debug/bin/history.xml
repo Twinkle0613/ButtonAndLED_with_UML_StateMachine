@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g2 -Map=Test.map -O0 --gc-sections -LC:/Users/D203C-01/Desktop/STM32F4/STM32F429ZI_Template -TC:/Users/D203C-01/Desktop/STM32F4/STM32F429ZI_Template/stm32f429zi_flash.ld -g">
+      <target file="Test.elf" lastModified="1552f40f3c4">
+         <source file="..\obj\system_stm32f4xx.o" lastModified="1552f3df22c"/>
+         <source file="..\obj\stm32f4xx_hal.o" lastModified="1552f3dedda"/>
+         <source file="..\obj\stm32f4xx_hal_gpio.o" lastModified="1552f3df3e1"/>
+         <source file="..\obj\stm32f4xx_hal_rcc.o" lastModified="1552f3df00e"/>
+         <source file="..\obj\startup_stm32f429xx.o" lastModified="1552f3dec73"/>
+         <source file="..\obj\main.o" lastModified="1552f3dec54"/>
+      </target>
+   </processor>
+</history>

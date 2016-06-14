@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\..\..\..\..\Desktop\STM32F4\STM32F429ZI_Template">
+      <source file="..\..\..\app\main.c" lastModified="1552edb3d8d">
+      </source>
+   </includePath>
+</dependencies>

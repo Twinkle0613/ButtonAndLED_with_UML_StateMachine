@@ -1,0 +1,17 @@
+---
+:source:
+  :path: test
+  :file: test_UML_SM_simpleToy.c
+:successes:
+- :test: test_TaskConfig_initialize_the_stucture_of_Task
+  :line: 22
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 1
+  :failed: 0
+  :ignored: 0
+:stdout:
+- ''

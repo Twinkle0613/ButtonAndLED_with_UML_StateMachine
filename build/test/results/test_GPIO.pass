@@ -1,0 +1,26 @@
+---
+:source:
+  :path: test
+  :file: test_GPIO.c
+:successes:
+- :test: test_CreateLED_Function_and_it_should_return_a_address_and_the_State_of_LED_is_Disable
+  :line: 12
+  :message: ''
+- :test: test_turnLED_Function_when_LED1_is_turned_ON_and_OFF
+  :line: 17
+  :message: ''
+- :test: test_CreateButton_Function_and_it_should_return_a_address_input_state_is_LOW
+  :line: 25
+  :message: ''
+- :test: test_getButton_Function_and_it_should_return_the_state_of_button
+  :line: 32
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 4
+  :passed: 4
+  :failed: 0
+  :ignored: 0
+:stdout:
+- ''

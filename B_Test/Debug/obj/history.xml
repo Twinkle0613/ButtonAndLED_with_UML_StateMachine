@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc 4.8.1 mingw32 -mcpu=cortex-m4 -mthumb -g2 -Wall -O0 -c -DSTM32F429ZI -DSTM32F429xx -I..\..\..\..\..\..\..\Desktop\STM32F4\STM32F429ZI_Template">
+      <target file="main.o" lastModified="1552ee012da">
+         <source file="..\..\..\app\main.c" lastModified="1552edb3d8d"/>
+      </target>
+   </processor>
+</history>

@@ -30,11 +30,7 @@ char* GlobalOrderError;
 //=======External Functions This Runner Calls=====
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_createLED_Function_and_it_should_return_a_address_and_the_State_of_LED_is_Disable(void);
-extern void test_turnLED_Function_when_LED1_is_turned_ON_and_OFF(void);
-extern void test_createButton_Function_and_it_should_return_a_address_input_state_is_LOW(void);
-extern void test_getButton_Function_and_it_should_return_the_state_of_button(void);
-extern void test_turnButton(void);
+extern void test_module_generator_needs_to_be_implemented(void);
 
 
 //=======Test Reset Option=====
@@ -49,12 +45,8 @@ void resetTest(void)
 //=======MAIN=====
 int main(void)
 {
-  UnityBegin("test_GPIO.c");
-  RUN_TEST(test_createLED_Function_and_it_should_return_a_address_and_the_State_of_LED_is_Disable, 12);
-  RUN_TEST(test_turnLED_Function_when_LED1_is_turned_ON_and_OFF, 17);
-  RUN_TEST(test_createButton_Function_and_it_should_return_a_address_input_state_is_LOW, 25);
-  RUN_TEST(test_getButton_Function_and_it_should_return_the_state_of_button, 32);
-  RUN_TEST(test_turnButton, 40);
+  UnityBegin("test_Timer.c");
+  RUN_TEST(test_module_generator_needs_to_be_implemented, 12);
 
   return (UnityEnd());
 }

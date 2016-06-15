@@ -1,7 +1,13 @@
 #ifndef UML_SM_simpleToy_H
 #define UML_SM_simpleToy_H
 #include "GPIO.h"
-#include "Timer.h"
+//#include "Timer.h"
+
+#define IS_PRESSED HIGH
+#define IS_RELEASE LOW
+#define LED_ON ON
+#define LED_OFF OFF
+
 
 typedef enum{
   RELEASED,

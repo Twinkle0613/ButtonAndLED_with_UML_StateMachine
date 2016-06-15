@@ -20,3 +20,7 @@ LED_t *createLED(void){
 void turnLED(LED_t* LEDx, FunctionalState state){
   LEDx->state = state;
 }
+
+void turnButton(Button_t* ButtonX, FunctionalState state){
+  ButtonX->state = state;
+}

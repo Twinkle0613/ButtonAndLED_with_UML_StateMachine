@@ -3,14 +3,62 @@
   :path: test
   :file: test_UML_SM_simpleToy.c
 :successes:
+- :test: test_getTime_it_should_return_100_150_250_300
+  :line: 35
+  :message: ''
 - :test: test_TaskConfig_initialize_the_stucture_of_Task
-  :line: 22
+  :line: 52
+  :message: ''
+- :test: test_Releases_state_if_button_is_released_everyting_is_default
+  :line: 72
+  :message: ''
+- :test: test_Releases_state_if_button_is_pressed_LED_will_turn_ON_and_state_will_change_to_Pressed_On
+  :line: 82
+  :message: ''
+- :test: test_pressed_on_state_if_the_button_is_pressed_when_timer_is_expires_
+  :line: 100
+  :message: ''
+- :test: test_pressed_on_state_if__
+  :line: 119
+  :message: ''
+- :test: test_pressed_off_state_if_the_button_is_pressed
+  :line: 138
+  :message: ''
+- :test: test_pressed_off_state_if_the_button_is_release
+  :line: 159
+  :message: ''
+- :test: test_released_on_state_if_the_button_is_pressed
+  :line: 178
+  :message: ''
+- :test: test_released_on_state_if_the_button_is_released
+  :line: 200
+  :message: ''
+- :test: test_released_off_state_if_the_button_is_pressed
+  :line: 221
+  :message: ''
+- :test: test_released_off_state_if_the_button_is_released
+  :line: 242
+  :message: ''
+- :test: test_turning_off_state_if_the_button_is_released
+  :line: 262
+  :message: ''
+- :test: test_turning_off_state_if_the_button_is_pressed
+  :line: 274
+  :message: ''
+- :test: test_TaskConfig_Pressed_Release_Pressed_Test_it_should_in_TUnRNING_off_state
+  :line: 285
+  :message: ''
+- :test: test_TaskConfig_Wait_blinking_Test_when_button_is_always_pressed_Task_state_should_move_from_Pressed_ON_to_Pressed_Off_off_state
+  :line: 299
+  :message: ''
+- :test: test_TaskConfig_Wait_blinking_Test_when_button_is_always_release_Task_state_should_move_from_Pressed_ON_to_Pressed_Off_off_state
+  :line: 316
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 1
-  :passed: 1
+  :total: 17
+  :passed: 17
   :failed: 0
   :ignored: 0
 :stdout:

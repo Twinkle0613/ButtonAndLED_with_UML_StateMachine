@@ -3,10 +3,7 @@
 #include "Timer.h"
 #include <stdint.h>
  
-#define IS_PRESSED HIGH
-#define IS_RELEASE LOW
-#define LED_ON ON
-#define LED_OFF OFF
+
 
 
 void TaskConfig(TaskState* TaskX,int interval,LED_t* whichLED, Button_t* whichButton){
@@ -16,6 +13,7 @@ void TaskConfig(TaskState* TaskX,int interval,LED_t* whichLED, Button_t* whichBu
   TaskX->whichLED = whichLED;
   TaskX->whichButton = whichButton;
 }
+
 void buttonAndLed( TaskState* TaskX ){
   uint32_t currentTime;
   switch(TaskX->state) {
@@ -30,10 +28,10 @@ void buttonAndLed( TaskState* TaskX ){
      break;
      
      case PRESSED_ON:
-     
+       turnLED(TaskX->whichLED,LED_ON);
      if(getButton(TaskX->whichButton) == IS_PRESSED){
        currentTime = getTime();     
-       turnLED(TaskX->whichLED,LED_ON);
+       
        if(currentTime - TaskX->recordedTime >= TaskX->interval){  
         TaskX->recordedTime = currentTime;
         turnLED(TaskX->whichLED,LED_OFF);

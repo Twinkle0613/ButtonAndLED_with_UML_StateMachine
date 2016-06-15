@@ -19,6 +19,6 @@ Button_t* createButton(void);
 LED_t* createLED(void);
 int getButton(Button_t* ButtonX);
 void turnLED(LED_t* LEDx, FunctionalState state);
-
+void turnButton(Button_t* ButtonX, FunctionalState state);
 
 #endif // GPIO_H

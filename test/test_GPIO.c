@@ -37,3 +37,10 @@ void test_getButton_Function_and_it_should_return_the_state_of_button(void){
    TEST_ASSERT_EQUAL(HIGH,buttonA->state);
   
 }
+void test_turnButton(void){
+  
+  Button_t* buttonA = createButton();
+  turnButton(buttonA,ON);
+  TEST_ASSERT_EQUAL(HIGH,buttonA->state);
+  
+}

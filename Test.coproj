@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project version="2G - 2.0.2" name="Test">
   <Target name="Test" isCurrent="1">
-    <Device manufacturerId="9" manufacturerName="ST" chipId="287" chipName="STM32F429ZI" boardId="" boardName="" coreId="4" coreName="Cortex M4"/>
+    <Device manufacturerId="9" manufacturerName="ST" chipId="287" chipName="STM32F429ZI" boardId="" boardName="" boardUrl="" coreId="4" coreName="Cortex M4"/>
     <BuildOption>
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
@@ -73,15 +73,15 @@
     <File name="CMSIS/core_cmFunc.h" path="Conf/CMSIS/core_cmFunc.h" type="1"/>
     <File name="Legacy/stm32_hal_legacy.h" path="../STM32Cube_FW_F4_V1.12.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h" type="1"/>
     <File name="Startup/system_stm32f4xx.c" path="Conf/Startup/system_stm32f4xx.c" type="1"/>
-    <File name="CMSIS/core_cmSimd.h" path="Conf/CMSIS/core_cmSimd.h" type="1"/>
     <File name="Startup/stm32f429xx.h" path="Conf/Startup/stm32f429xx.h" type="1"/>
+    <File name="CMSIS/core_cmSimd.h" path="Conf/CMSIS/core_cmSimd.h" type="1"/>
     <File name="Startup/stm32f4xx.h" path="Conf/Startup/stm32f4xx.h" type="1"/>
-    <File name="Driver/stm32f4xx_hal.h" path="Conf/Driver/stm32f4xx_hal.h" type="1"/>
     <File name="Startup/system_stm32f4xx.h" path="Conf/Startup/system_stm32f4xx.h" type="1"/>
+    <File name="Driver/stm32f4xx_hal.h" path="Conf/Driver/stm32f4xx_hal.h" type="1"/>
     <File name="Driver/stm32f4xx_hal_gpio.h" path="Conf/Driver/stm32f4xx_hal_gpio.h" type="1"/>
     <File name="Legacy" path="" type="2"/>
-    <File name="CMSIS/core_cm4.h" path="Conf/CMSIS/core_cm4.h" type="1"/>
     <File name="Startup/stm32f4xx_hal_def.h" path="Conf/Startup/stm32f4xx_hal_def.h" type="1"/>
+    <File name="CMSIS/core_cm4.h" path="Conf/CMSIS/core_cm4.h" type="1"/>
     <File name="Driver/stm32f4xx_hal_rcc.h" path="Conf/Driver/stm32f4xx_hal_rcc.h" type="1"/>
     <File name="Driver/stm32f4xx_hal.c" path="Conf/Driver/stm32f4xx_hal.c" type="1"/>
     <File name="CMSIS/core_cmInstr.h" path="Conf/CMSIS/core_cmInstr.h" type="1"/>

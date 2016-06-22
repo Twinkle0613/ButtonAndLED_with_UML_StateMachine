@@ -26,7 +26,6 @@ void buttonFSM(ButtonSM* buttonX){
     }
     break;
     
-    
     case WAIT:
     currentTime = getTime();
     if(currentTime - buttonX->recordedTime >= buttonX->interval){

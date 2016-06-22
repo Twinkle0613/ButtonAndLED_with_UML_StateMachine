@@ -80,12 +80,12 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_ButtonFSM.c");
-  RUN_TEST(test_getTime_it_should_return_100_150_250_300, 43);
+  RUN_TEST(test_getTime_it_should_return_100_150_250_300, 44);
   RUN_TEST(test_readButton, 59);
   RUN_TEST(test_buttonConfig, 70);
-  RUN_TEST(test_buttonFSM_in_IDle_state, 80);
-  RUN_TEST(test_buttonFSM_in_Wait_state_prevState_is_equal_curState_the_output_should_be_follow_curState, 93);
-  RUN_TEST(test_buttonFSM_in_Wait_state_prevState_is_Not_equal_curState_the_output_should_be_follow_curState, 109);
+  RUN_TEST(test_buttonFSM_in_IDle_state, 79);
+  RUN_TEST(test_buttonFSM_in_Wait_state_prevState_is_equal_curState_the_output_should_be_follow_curState, 91);
+  RUN_TEST(test_buttonFSM_in_Wait_state_prevState_is_Not_equal_curState_the_output_should_be_follow_curState, 106);
 
   CMock_Guts_MemFreeFinal();
   return (UnityEnd());

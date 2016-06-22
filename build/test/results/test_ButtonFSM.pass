@@ -4,7 +4,7 @@
   :file: test_ButtonFSM.c
 :successes:
 - :test: test_getTime_it_should_return_100_150_250_300
-  :line: 43
+  :line: 44
   :message: ''
 - :test: test_readButton
   :line: 59
@@ -13,13 +13,13 @@
   :line: 70
   :message: ''
 - :test: test_buttonFSM_in_IDle_state
-  :line: 80
+  :line: 79
   :message: ''
 - :test: test_buttonFSM_in_Wait_state_prevState_is_equal_curState_the_output_should_be_follow_curState
-  :line: 93
+  :line: 91
   :message: ''
 - :test: test_buttonFSM_in_Wait_state_prevState_is_Not_equal_curState_the_output_should_be_follow_curState
-  :line: 109
+  :line: 106
   :message: ''
 :failures: []
 :ignores: []

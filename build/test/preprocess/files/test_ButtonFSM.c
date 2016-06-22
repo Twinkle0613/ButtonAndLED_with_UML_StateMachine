@@ -7,7 +7,7 @@
 
 
 
-
+int timeTable[] = {0,100,150,250,300,500};
 
 uint32_t* timePoint = ((void *)0);
 
@@ -47,11 +47,13 @@ void setButtonPointerTable(int state[]){
 
 
 
-void setTimePointerTable(int timeTable[]){
+void resetTime(void){
 
   timePoint = timeTable;
 
 }
+
+
 
 
 
@@ -77,9 +79,7 @@ void tearDown(void)
 
 void test_getTime_it_should_return_100_150_250_300(void){
 
-  int timeTable[] = {0,100,150,250,300,500};
-
-  setTimePointerTable(timeTable);
+  resetTime();
 
   int time = getTime();
 
@@ -139,11 +139,9 @@ void test_buttonConfig(void){
 
   buttonConfig(TaskButtonA,10000);
 
+  UnityAssertEqualNumber((_U_SINT)((IDLE)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)75, UNITY_DISPLAY_STYLE_INT);
 
-
-  UnityAssertEqualNumber((_U_SINT)((IDLE)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)76, UNITY_DISPLAY_STYLE_INT);
-
-  UnityAssertEqualNumber((_U_SINT)((TaskButtonA->interval)), (_U_SINT)((10000)), (((void *)0)), (_U_UINT)77, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((TaskButtonA->interval)), (_U_SINT)((10000)), (((void *)0)), (_U_UINT)76, UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -151,13 +149,11 @@ void test_buttonConfig(void){
 
 void test_buttonFSM_in_IDle_state(void){
 
-  int buttonStateTable[] = {HIGH,LOW,HIGH};
+  resetTime();
+
+  int buttonStateTable[] = {HIGH,LOW};
 
   setButtonPointerTable(buttonStateTable);
-
-  int timeTable[] = {0,100,150,250,300,500};
-
-  setTimePointerTable(timeTable);
 
   ButtonSM *TaskButtonA = malloc(sizeof(ButtonSM));
 
@@ -165,9 +161,9 @@ void test_buttonFSM_in_IDle_state(void){
 
   buttonFSM(TaskButtonA);
 
-  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((TaskButtonA->recordedTime)), (((void *)0)), (_U_UINT)88, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((TaskButtonA->recordedTime)), (((void *)0)), (_U_UINT)86, UNITY_DISPLAY_STYLE_INT);
 
-  UnityAssertEqualNumber((_U_SINT)((WAIT)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)89, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((WAIT)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)87, UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -177,13 +173,11 @@ void test_buttonFSM_in_IDle_state(void){
 
 void test_buttonFSM_in_Wait_state_prevState_is_equal_curState_the_output_should_be_follow_curState(void){
 
-  int buttonStateTable[] = {HIGH,HIGH,HIGH};
+  int buttonStateTable[] = {HIGH,HIGH};
 
   setButtonPointerTable(buttonStateTable);
 
-  int timeTable[] = {0,100};
-
-  setTimePointerTable(timeTable);
+  resetTime();
 
   ButtonSM *TaskButtonA = malloc(sizeof(ButtonSM));
 
@@ -191,17 +185,17 @@ void test_buttonFSM_in_Wait_state_prevState_is_equal_curState_the_output_should_
 
   buttonFSM(TaskButtonA);
 
-  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((TaskButtonA->recordedTime)), (((void *)0)), (_U_UINT)101, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((TaskButtonA->recordedTime)), (((void *)0)), (_U_UINT)98, UNITY_DISPLAY_STYLE_INT);
 
-  UnityAssertEqualNumber((_U_SINT)((WAIT)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)102, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((WAIT)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)99, UNITY_DISPLAY_STYLE_INT);
 
   buttonFSM(TaskButtonA);
 
-  UnityAssertEqualNumber((_U_SINT)((HIGH)), (_U_SINT)((TaskButtonA->curState)), (((void *)0)), (_U_UINT)104, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((HIGH)), (_U_SINT)((TaskButtonA->curState)), (((void *)0)), (_U_UINT)101, UNITY_DISPLAY_STYLE_INT);
 
-  UnityAssertEqualNumber((_U_SINT)((HIGH)), (_U_SINT)((TaskButtonA->output)), (((void *)0)), (_U_UINT)105, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((HIGH)), (_U_SINT)((TaskButtonA->output)), (((void *)0)), (_U_UINT)102, UNITY_DISPLAY_STYLE_INT);
 
-  UnityAssertEqualNumber((_U_SINT)((IDLE)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)106, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((IDLE)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)103, UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -209,13 +203,11 @@ void test_buttonFSM_in_Wait_state_prevState_is_equal_curState_the_output_should_
 
 void test_buttonFSM_in_Wait_state_prevState_is_Not_equal_curState_the_output_should_be_follow_curState(void){
 
-  int buttonStateTable[] = {HIGH,LOW,HIGH};
+  int buttonStateTable[] = {HIGH,LOW};
 
   setButtonPointerTable(buttonStateTable);
 
-  int timeTable[] = {0,100};
-
-  setTimePointerTable(timeTable);
+  resetTime();
 
   ButtonSM *TaskButtonA = malloc(sizeof(ButtonSM));
 
@@ -223,18 +215,16 @@ void test_buttonFSM_in_Wait_state_prevState_is_Not_equal_curState_the_output_sho
 
   buttonFSM(TaskButtonA);
 
-  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((TaskButtonA->recordedTime)), (((void *)0)), (_U_UINT)117, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((TaskButtonA->recordedTime)), (((void *)0)), (_U_UINT)113, UNITY_DISPLAY_STYLE_INT);
 
-  UnityAssertEqualNumber((_U_SINT)((WAIT)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)118, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((WAIT)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)114, UNITY_DISPLAY_STYLE_INT);
 
   buttonFSM(TaskButtonA);
 
-  UnityAssertEqualNumber((_U_SINT)((LOW)), (_U_SINT)((TaskButtonA->curState)), (((void *)0)), (_U_UINT)120, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((LOW)), (_U_SINT)((TaskButtonA->curState)), (((void *)0)), (_U_UINT)116, UNITY_DISPLAY_STYLE_INT);
 
-  UnityAssertEqualNumber((_U_SINT)((LOW)), (_U_SINT)((TaskButtonA->prevState)), (((void *)0)), (_U_UINT)121, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((LOW)), (_U_SINT)((TaskButtonA->prevState)), (((void *)0)), (_U_UINT)117, UNITY_DISPLAY_STYLE_INT);
 
-
-
-  UnityAssertEqualNumber((_U_SINT)((IDLE)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)123, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((IDLE)), (_U_SINT)((TaskButtonA->state)), (((void *)0)), (_U_UINT)118, UNITY_DISPLAY_STYLE_INT);
 
 }

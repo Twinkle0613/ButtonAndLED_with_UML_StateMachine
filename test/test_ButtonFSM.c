@@ -6,7 +6,7 @@
 #include <malloc.h>
 
 
-
+int timeTable[] = {0,100,150,250,300,500};
 uint32_t* timePoint = NULL;
 uint32_t* buttonStatePointer = NULL;
 
@@ -26,9 +26,10 @@ void setButtonPointerTable(int state[]){
   buttonStatePointer = state;
 }
 
-void setTimePointerTable(int timeTable[]){
+void resetTime(void){
   timePoint = timeTable;
 }
+
 
 void setUp(void)
 {
@@ -41,8 +42,7 @@ void tearDown(void)
 }
 
 void  test_getTime_it_should_return_100_150_250_300(void){
-  int timeTable[] = {0,100,150,250,300,500};
-  setTimePointerTable(timeTable);
+  resetTime();
   int time = getTime();
   TEST_ASSERT_EQUAL(0,time);
   time = getTime();
@@ -72,16 +72,14 @@ void test_buttonConfig(void){
   ButtonSM *TaskButtonA = malloc(sizeof(ButtonSM));
   Button_t *buttonA = createButton();
   buttonConfig(TaskButtonA,10000);
-  
   TEST_ASSERT_EQUAL(IDLE,TaskButtonA->state);
   TEST_ASSERT_EQUAL(TaskButtonA->interval,10000);
 }
 
 void test_buttonFSM_in_IDle_state(void){
-  int buttonStateTable[] = {HIGH,LOW,HIGH};
+  resetTime();
+  int buttonStateTable[] = {HIGH,LOW};
   setButtonPointerTable(buttonStateTable);
-  int timeTable[] = {0,100,150,250,300,500};
-  setTimePointerTable(timeTable);
   ButtonSM *TaskButtonA = malloc(sizeof(ButtonSM));
   buttonConfig(TaskButtonA,100);
   buttonFSM(TaskButtonA);
@@ -91,10 +89,9 @@ void test_buttonFSM_in_IDle_state(void){
 
 
 void test_buttonFSM_in_Wait_state_prevState_is_equal_curState_the_output_should_be_follow_curState(void){
-  int buttonStateTable[] = {HIGH,HIGH,HIGH};
+  resetTime();
+  int buttonStateTable[] = {HIGH,HIGH};
   setButtonPointerTable(buttonStateTable);
-  int timeTable[] = {0,100};
-  setTimePointerTable(timeTable);
   ButtonSM *TaskButtonA = malloc(sizeof(ButtonSM));
   buttonConfig(TaskButtonA,100);
   buttonFSM(TaskButtonA);
@@ -107,10 +104,9 @@ void test_buttonFSM_in_Wait_state_prevState_is_equal_curState_the_output_should_
 }
 
 void test_buttonFSM_in_Wait_state_prevState_is_Not_equal_curState_the_output_should_be_follow_curState(void){
-  int buttonStateTable[] = {HIGH,LOW,HIGH};
+  resetTime();
+  int buttonStateTable[] = {HIGH,LOW};
   setButtonPointerTable(buttonStateTable);
-  int timeTable[] = {0,100};
-  setTimePointerTable(timeTable);
   ButtonSM *TaskButtonA = malloc(sizeof(ButtonSM));
   buttonConfig(TaskButtonA,100);
   buttonFSM(TaskButtonA);
@@ -119,6 +115,5 @@ void test_buttonFSM_in_Wait_state_prevState_is_Not_equal_curState_the_output_sho
   buttonFSM(TaskButtonA);
   TEST_ASSERT_EQUAL(LOW,TaskButtonA->curState);
   TEST_ASSERT_EQUAL(LOW,TaskButtonA->prevState);
-  //TEST_ASSERT_EQUAL(HIGH,TaskButtonA->output);
   TEST_ASSERT_EQUAL(IDLE,TaskButtonA->state);
 }
